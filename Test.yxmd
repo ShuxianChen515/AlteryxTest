@@ -1,0 +1,300 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2022.1">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="330" y="126" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="&quot;https://excel.uat.jp.coherent.global/deloitte/api/v3/folders/Test Folder 1/services/新建 Microsoft Excel 工作表/Execute&quot;" field="SparkURL" size="1073741823" type="V_WString" />
+            <FormulaField expression="'{&#xA;    &quot;request_data&quot;: {&#xA;        &quot;inputs&quot;: {&#xA;            &quot;input1&quot;: ' + ToString([Input_1]) + ',&#xA;            &quot;input2&quot;: ' + ToString([Input_2]) + ',&#xA;            &quot;input3&quot;: ' + ToString([Input_3]) + ',&#xA;            &quot;input4&quot;: ' + ToString([Input_4]) + '&#xA;        }&#xA;    },&#xA;    &quot;request_meta&quot;: {    &#xA;    }&#xA;}'" field="pload" size="1073741823" type="V_WString" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>SparkURL = "https://excel.uat.jp.coherent.global/deloitte/api/v3/folders/Test Fo...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="4">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="30" y="126" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="25">C:\Users\shuxchen\Documents\1_Projects\99. Others\4. Spark\Inputs.xlsx|||`Input$`</File>
+          <FormatSpecificOptions>
+            <FirstRowData>True</FirstRowData>
+            <ImportLine>1</ImportLine>
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Inputs.xlsx
+Query=`Input$`</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="F1" size="255" source="File: C:\Users\shuxchen\Documents\1_Projects\99. Others\4. Spark\Inputs.xlsx|||`Input$`" type="V_String" />
+            <Field name="F2" source="File: C:\Users\shuxchen\Documents\1_Projects\99. Others\4. Spark\Inputs.xlsx|||`Input$`" type="Double" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="5">
+      <GuiSettings Plugin="AlteryxConnectorGui.Download.Download">
+        <Position x="462" y="126" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <URLField>SparkURL</URLField>
+          <OutputMode>String</OutputMode>
+          <CodePage>65001</CodePage>
+          <EncodeURLs value="True" />
+          <Headers>
+            <NameValues>
+              <Item name="Authorization" value="Bearer eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJjSThfa0NTSEFwUUx6Y3lMTnFqZFR1QUdsY2NjbmpNNEdXMjY4SG13LURBIn0.eyJleHAiOjE2ODA2MDI2MDcsImlhdCI6MTY4MDU5NTQwNywiYXV0aF90aW1lIjoxNjgwNTk1NDA0LCJqdGkiOiI2NGZmMDAwYS0yYjE4LTQ2ZjYtODRhMy0wNTI0M2Y4NGM1YmIiLCJpc3MiOiJodHRwczovL2tleWNsb2FrLnVhdC5qcC5jb2hlcmVudC5nbG9iYWwvYXV0aC9yZWFsbXMvZGVsb2l0dGUiLCJhdWQiOlsicHJvZHVjdC1mYWN0b3J5IiwicmVhbG0tbWFuYWdlbWVudCJdLCJzdWIiOiJjYWRmNjY1NS1jYjVmLTQzNWUtYTE5YS0wZGY3Mjk4YjhiMWIiLCJ0eXAiOiJCZWFyZXIiLCJhenAiOiJwcm9kdWN0LWZhY3RvcnkiLCJzZXNzaW9uX3N0YXRlIjoiMTc2OWU4NzItY2RlOC00ZjJmLTkwZTEtMGU4ZTkyZGJhNzE0IiwiYWNyIjoiMSIsImFsbG93ZWQtb3JpZ2lucyI6WyJodHRwczovL3NhLmRldi5jb2hlcmVudC5nbG9iYWwiLCJodHRwczovL3NhLnN0YWdpbmcuY29oZXJlbnQuZ2xvYmFsIiwiaHR0cHM6Ly9wcm9kdWN0ZmFjdG9yeS51YXQuanAuY29oZXJlbnQuZ2xvYmFsIiwiaHR0cHM6Ly9zcGFyay51YXQuanAuY29oZXJlbnQuZ2xvYmFsIiwiaHR0cHM6Ly9zcGFyay11c2VyLW1hbmFnZXIudWF0LmpwLmNvaGVyZW50Lmdsb2JhbCJdLCJyZWFsbV9hY2Nlc3MiOnsicm9sZXMiOlsib2ZmbGluZV9hY2Nlc3MiXX0sInJlc291cmNlX2FjY2VzcyI6eyJyZWFsbS1tYW5hZ2VtZW50Ijp7InJvbGVzIjpbInZpZXctcmVhbG0iLCJ2aWV3LWlkZW50aXR5LXByb3ZpZGVycyIsIm1hbmFnZS1pZGVudGl0eS1wcm92aWRlcnMiLCJpbXBlcnNvbmF0aW9uIiwicmVhbG0tYWRtaW4iLCJjcmVhdGUtY2xpZW50IiwibWFuYWdlLXVzZXJzIiwicXVlcnktcmVhbG1zIiwidmlldy1hdXRob3JpemF0aW9uIiwicXVlcnktY2xpZW50cyIsInF1ZXJ5LXVzZXJzIiwibWFuYWdlLWV2ZW50cyIsIm1hbmFnZS1yZWFsbSIsInZpZXctZXZlbnRzIiwidmlldy11c2VycyIsInZpZXctY2xpZW50cyIsIm1hbmFnZS1hdXRob3JpemF0aW9uIiwibWFuYWdlLWNsaWVudHMiLCJxdWVyeS1ncm91cHMiXX0sInByb2R1Y3QtZmFjdG9yeSI6eyJyb2xlcyI6WyJtYW5hZ2UtYWNjb3VudCIsInN1cGVyLWFkbWluIiwidmlldy1wcm9maWxlIl19fSwic2NvcGUiOiJvcGVuaWQgcHJvZmlsZSBvZmZsaW5lX2FjY2VzcyIsInNpZCI6IjE3NjllODcyLWNkZTgtNGYyZi05MGUxLTBlOGU5MmRiYTcxNCIsIm5hbWUiOiJDaGV1bmcgWXVuIENoYXUgSGVucnkiLCJncm91cHMiOlsidGVuYW50LWFkbWluIiwidXNlcjpwZiJdLCJyZWFsbSI6ImRlbG9pdHRlIiwicHJlZmVycmVkX3VzZXJuYW1lIjoieWNoZXVuZ0BkZWxvaXR0ZS5jby51ayIsImdpdmVuX25hbWUiOiJDaGV1bmciLCJmYW1pbHlfbmFtZSI6Ill1biBDaGF1IEhlbnJ5In0.LWgQJ7gKVwX2r0tMYwL9F317FOW9XL8fanJ4LIiVu90E5Ctdt7xAunJ09O-iG7_b9a6TIqOFRiLE8kLy1JvoKCh9XQ1ED0BNUPJVZ2U0hXhLgnvdtFs8_deUNsOCnLaVEgj2qaHPu1SZR6dOTWQB1eBAhJroDDme1VDcATM-zpfqjZJPkNsktB-aZDtCIXUnlbyurhvkFsZelE_pmT-d7xq9oJ_BccIu5QQRw-M9RfKXH8E7Az7lYHNzwox6ovcOpg2HbLR0LJ2hdAw1LLOUDafKmsRIZ0nY1_4MChtKO6pTx6UdwRZyePopXc5doirADH8d1iaOXtxAZHZ0ELavig" />
+              <Item name="Content-Type" value="application/json" />
+            </NameValues>
+            <Fields orderChanged="False">
+              <Field name="Input_1" selected="False" />
+              <Field name="Input_2" selected="False" />
+              <Field name="Input_3" selected="False" />
+              <Field name="Input_4" selected="False" />
+              <Field name="Median" selected="False" />
+              <Field name="Mu" selected="False" />
+              <Field name="Percentile" selected="False" />
+              <Field name="Sigma" selected="False" />
+              <Field name="SparkURL" selected="False" />
+              <Field name="pload" selected="False" />
+              <Field name="*Unknown" selected="False" />
+            </Fields>
+          </Headers>
+          <Payload>
+            <HTTPAction>POST</HTTPAction>
+            <QueryStringBodyMode>Field</QueryStringBodyMode>
+            <Field>pload</Field>
+          </Payload>
+          <numConnections>2</numConnections>
+          <Timeout>600</Timeout>
+          <EnableRPM value="False" />
+          <Password />
+          <UserName />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxConnectorEngine.dll" EngineDllEntryPoint="AlteryxDownload" />
+    </Node>
+    <Node ToolID="6">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.JSONParse.JSONParse">
+        <Position x="594" y="126" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <JSON_Field>DownloadData</JSON_Field>
+          <IncludeInOutput value="False" />
+          <SingleField value="True" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxJSONParse" />
+    </Node>
+    <Node ToolID="7">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="702" y="126" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Mode>Simple</Mode>
+          <Simple>
+            <Operator>Contains</Operator>
+            <Field>JSON_Name</Field>
+            <Operands>
+              <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+              <DateType>fixed</DateType>
+              <PeriodDate>2023-04-04 17:16:18</PeriodDate>
+              <PeriodType>
+              </PeriodType>
+              <PeriodCount>0</PeriodCount>
+              <Operand>response_data.outputs</Operand>
+              <StartDate>2023-04-04 17:16:18</StartDate>
+              <EndDate>2023-04-04 17:16:18</EndDate>
+            </Operands>
+          </Simple>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Contains([JSON_Name],"response_data.outputs")</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="8">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="846" y="114" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="JSON_Name" selected="True" />
+            <SelectField field="JSON_ValueString" selected="True" />
+            <SelectField field="*Unknown" selected="False" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="9">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Unique.Unique">
+        <Position x="942" y="114" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <UniqueFields>
+            <Field field="JSON_Name" />
+          </UniqueFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxUnique" />
+    </Node>
+    <Node ToolID="15">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.CrossTab.CrossTab">
+        <Position x="174" y="126" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <GroupFields />
+          <HeaderField field="F1" />
+          <DataField field="F2" />
+          <Methods>
+            <Method method="Sum" />
+          </Methods>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="Input_1" source="CrossTab:Header:F1:Input 1:Sum:" type="Double" />
+            <Field name="Input_2" source="CrossTab:Header:F1:Input 2:Sum:" type="Double" />
+            <Field name="Input_3" source="CrossTab:Header:F1:Input 3:Sum:" type="Double" />
+            <Field name="Input_4" source="CrossTab:Header:F1:Input 4:Sum:" type="Double" />
+            <Field name="Median" source="CrossTab:Header:F1:Median:Sum:" type="Double" />
+            <Field name="Mu" source="CrossTab:Header:F1:Mu:Sum:" type="Double" />
+            <Field name="Percentile" source="CrossTab:Header:F1:Percentile:Sum:" type="Double" />
+            <Field name="Sigma" source="CrossTab:Header:F1:Sigma:Sum:" type="Double" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxCrossTab" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="5" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="4" Connection="Output" />
+      <Destination ToolID="15" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="5" Connection="Output" />
+      <Destination ToolID="6" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="6" Connection="Output" />
+      <Destination ToolID="7" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="7" Connection="True" />
+      <Destination ToolID="8" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="8" Connection="Output" />
+      <Destination ToolID="9" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="15" Connection="Output" />
+      <Destination ToolID="1" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <RunWithE2 value="True" />
+    <PredictiveToolsCodePage value="1252" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>Test</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+      <WorkflowId value="2cf20fd8-1eac-4e0a-b11c-d639d4506ae9" />
+      <Telemetry>
+        <PreviousWorkflowId value="392db4c0-c059-48ae-8ab8-69f0e742ad9d" />
+        <OriginWorkflowId value="392db4c0-c059-48ae-8ab8-69f0e742ad9d" />
+      </Telemetry>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>
